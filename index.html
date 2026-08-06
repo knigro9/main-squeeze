@@ -23,7 +23,12 @@
       THE MAIN SQUEEZE
     </a>
 
-    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -40,16 +45,7 @@
 
   <main>
     <section class="hero">
-      <div class="sun" aria-hidden="true">
-        <div class="sun-rays">
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-        </div>
-        <div class="sun-center"></div>
-      </div>
-
-      <h1>THE MAIN SQUEEZE</h1>
+<h1>THE MAIN SQUEEZE</h1>
 
       <div class="title-divider">
         <span></span>
@@ -59,11 +55,25 @@
 
       <p class="names">KAT + BEN</p>
 
-      <img
-        class="hero-art"
-        src="assets/hero.png"
-        alt="Two cheerful lemons holding hands while surfing together"
-      >
+      <div class="hero-art-wrap">
+        <img
+          class="hero-art"
+          src="assets/hero-no-sun.png"
+          alt="Two cheerful lemons holding hands while surfing together"
+        >
+
+        <div class="hero-art-sun" aria-hidden="true">
+          <div class="sun">
+            <div class="sun-rays">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="sun-center"></div>
+          </div>
+        </div>
+      </div>
 
       <a class="lets-ride" href="#celebrations">
         let’s ride
@@ -81,47 +91,51 @@
           <svg class="ocean-scene" viewBox="0 0 420 220" role="presentation">
             <g class="whale-tail">
               <path d="
-                M210 178
-                C208 160 208 143 212 127
-                C203 124 194 119 187 111
-                C178 101 174 90 175 78
-                C190 81 202 87 211 97
-                C214 100 216 104 218 108
-                C220 104 223 100 226 97
-                C235 87 247 81 262 78
-                C263 90 259 101 250 111
-                C243 119 234 124 225 127
-                C229 143 229 160 226 178
+                M211 177
+                C210 160 210 144 214 127
+
+                C203 125 194 121 186 114
+                C176 105 170 94 169 81
+                C184 83 197 88 207 97
+                C212 101 216 106 219 111
+
+                C222 106 226 101 231 97
+                C241 88 254 83 269 81
+                C268 94 262 105 252 114
+                C244 121 235 125 224 127
+
+                C228 144 228 160 226 177
+                C222 181 215 181 211 177
                 Z
               " />
             </g>
 
             <g class="water-lines">
-              <path class="wave-line wave-line-one" d="
-                M-8 176
-                C22 166 48 186 78 176
-                C108 166 134 186 164 176
-                C194 166 220 186 250 176
-                C280 166 306 186 336 176
-                C366 166 392 186 422 176
+              <path class="wave-line wave-line-back" d="
+                M-12 169
+                C18 158 42 180 72 169
+                C102 158 126 180 156 169
+                C186 158 210 180 240 169
+                C270 158 294 180 324 169
+                C354 158 390 180 430 169
               " />
 
-              <path class="wave-line wave-line-two" d="
-                M-18 198
-                C12 188 38 208 68 198
-                C98 188 124 208 154 198
-                C184 188 210 208 240 198
-                C270 188 296 208 326 198
-                C356 188 392 208 432 198
+              <path class="wave-line wave-line-mid" d="
+                M-18 190
+                C12 176 38 204 68 190
+                C98 176 124 204 154 190
+                C184 176 210 204 240 190
+                C270 176 296 204 326 190
+                C356 176 392 204 432 190
               " />
 
-              <path class="wave-line wave-line-three" d="
-                M8 212
-                C36 204 60 220 88 212
-                C116 204 140 220 168 212
-                C196 204 220 220 248 212
-                C276 204 300 220 328 212
-                C356 204 388 220 416 212
+              <path class="wave-line wave-line-front" d="
+                M-8 211
+                C22 196 48 226 78 211
+                C108 196 134 226 164 211
+                C194 196 220 226 250 211
+                C280 196 306 226 336 211
+                C366 196 392 226 422 211
               " />
             </g>
           </svg>
