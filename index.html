@@ -17,19 +17,13 @@
 </head>
 
 <body>
-
   <header class="site-header">
     <a class="site-logo" href="index.html">
       <span>☀</span>
       THE MAIN SQUEEZE
     </a>
 
-    <button
-      class="menu-button"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -45,16 +39,13 @@
   </header>
 
   <main>
-
     <section class="hero">
-
       <div class="sun" aria-hidden="true">
         <div class="sun-rays">
           <span></span><span></span><span></span><span></span>
           <span></span><span></span><span></span><span></span>
           <span></span><span></span><span></span><span></span>
         </div>
-
         <div class="sun-center"></div>
       </div>
 
@@ -78,41 +69,98 @@
         let’s ride
         <span>↓</span>
       </a>
-
     </section>
 
     <section class="celebrations" id="celebrations">
+      <a class="event-card hang-ten-card" href="pages/hang-ten.html">
+        <p class="volume-label">VOL 1</p>
 
-      <a class="event-card hang-ten" href="pages/hang-ten.html">
-        <p class="card-number">01</p>
-        <h2>HANG TEN</h2>
-        <p>Joint Bach Trip</p>
-        <small>Sayulita · February 2027</small>
+        <div class="hang-ten-animation" aria-hidden="true">
+          <div class="card-sun"></div>
+
+          <svg class="ocean-scene" viewBox="0 0 420 220" role="presentation">
+            <g class="whale-tail">
+              <path d="
+                M210 178
+                C208 160 208 143 212 127
+                C203 124 194 119 187 111
+                C178 101 174 90 175 78
+                C190 81 202 87 211 97
+                C214 100 216 104 218 108
+                C220 104 223 100 226 97
+                C235 87 247 81 262 78
+                C263 90 259 101 250 111
+                C243 119 234 124 225 127
+                C229 143 229 160 226 178
+                Z
+              " />
+            </g>
+
+            <g class="water-lines">
+              <path class="wave-line wave-line-one" d="
+                M-8 176
+                C22 166 48 186 78 176
+                C108 166 134 186 164 176
+                C194 166 220 186 250 176
+                C280 166 306 186 336 176
+                C366 166 392 186 422 176
+              " />
+
+              <path class="wave-line wave-line-two" d="
+                M-18 198
+                C12 188 38 208 68 198
+                C98 188 124 208 154 198
+                C184 188 210 208 240 198
+                C270 188 296 208 326 198
+                C356 188 392 208 432 198
+              " />
+
+              <path class="wave-line wave-line-three" d="
+                M8 212
+                C36 204 60 220 88 212
+                C116 204 140 220 168 212
+                C196 204 220 220 248 212
+                C276 204 300 220 328 212
+                C356 204 388 220 416 212
+              " />
+            </g>
+          </svg>
+        </div>
+
+        <div class="event-card-copy">
+          <h2>HANG TEN</h2>
+          <p>Joint Bach Trip</p>
+          <small>Sayulita, MX · February 2027</small>
+        </div>
       </a>
 
       <a class="event-card just-us" href="pages/just-us.html">
-        <p class="card-number">02</p>
-        <h2>JUST US</h2>
-        <p>Elopement</p>
-        <small>Durham · Summer 2027</small>
+        <p class="volume-label">VOL 2</p>
+        <div class="event-card-copy">
+          <h2>JUST US</h2>
+          <p>Elopement</p>
+          <small>Durham · Summer 2027</small>
+        </div>
       </a>
 
       <a class="event-card with-family" href="pages/with-family.html">
-        <p class="card-number">03</p>
-        <h2>WITH FAMILY</h2>
-        <p>Family Weekend</p>
-        <small>Durham · Summer 2027</small>
+        <p class="volume-label">VOL 3</p>
+        <div class="event-card-copy">
+          <h2>WITH FAMILY</h2>
+          <p>Family Weekend</p>
+          <small>Durham · Summer 2027</small>
+        </div>
       </a>
 
       <a class="event-card party-time" href="pages/party-time.html">
-        <p class="card-number">04</p>
-        <h2>PARTY TIME</h2>
-        <p>Friends Celebration</p>
-        <small>Durham · Fall 2027</small>
+        <p class="volume-label">VOL 4</p>
+        <div class="event-card-copy">
+          <h2>PARTY TIME</h2>
+          <p>Friends Celebration</p>
+          <small>Durham · Fall 2027</small>
+        </div>
       </a>
-
     </section>
-
   </main>
 
   <script src="script.js"></script>

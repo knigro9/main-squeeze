@@ -3,7 +3,7 @@
   --orange: #d9571c;
   --navy: #173b5b;
   --olive: #7b8055;
-  --yellow: #efc742;
+  --yellow: #e9bd48;
 }
 
 * {
@@ -264,10 +264,10 @@ h1 {
   font-style: normal;
 }
 
-/* Cards */
+/* Event cards */
 
 .celebrations {
-  max-width: 1250px;
+  max-width: 1380px;
   margin: 0 auto;
   padding: 90px 36px 140px;
 
@@ -277,59 +277,94 @@ h1 {
 }
 
 .event-card {
-  min-height: 330px;
+  position: relative;
+  overflow: hidden;
+
+  min-height: 500px;
   padding: 30px;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
 
-  border: 2px solid var(--navy);
-  border-radius: 6px;
+  border: 3px solid var(--navy);
+  border-radius: 10px;
 
   text-decoration: none;
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.event-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.12;
+
+  background-image:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.8) 0 1px,
+      transparent 1.5px
+    );
+
+  background-size: 7px 7px;
 }
 
 .event-card:hover {
-  transform: translateY(-8px) rotate(-1deg);
-  box-shadow: 10px 10px 0 var(--navy);
+  transform: translateY(-7px) rotate(-0.7deg);
+  box-shadow: 10px 12px 0 rgba(23, 59, 91, 0.18);
 }
 
 .event-card:nth-child(even):hover {
-  transform: translateY(-8px) rotate(1deg);
+  transform: translateY(-7px) rotate(0.7deg);
+}
+
+.volume-label {
+  position: relative;
+  z-index: 2;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.event-card-copy {
+  position: relative;
+  z-index: 2;
+
+  margin-top: auto;
 }
 
 .event-card h2 {
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   font-family: "DM Serif Display", serif;
-  font-size: 2.2rem;
+  font-size: clamp(2.1rem, 3vw, 3rem);
   line-height: 0.95;
 }
 
 .event-card p {
   font-size: 1.15rem;
+  font-weight: 700;
 }
 
 .event-card small {
-  margin-top: 8px;
+  display: block;
+  margin-top: 10px;
+
   font-size: 0.85rem;
-}
-
-.card-number {
-  margin-bottom: auto;
-
-  font-size: 0.8rem !important;
   font-weight: 700;
-  letter-spacing: 2px;
 }
 
-.hang-ten {
+.hang-ten-card {
   background: var(--yellow);
+  color: var(--navy);
 }
 
 .just-us {
@@ -347,9 +382,194 @@ h1 {
   color: var(--cream);
 }
 
-/* Mobile */
+/* Hang Ten animated scene */
 
-@media (max-width: 900px) {
+/* Hang Ten animated scene */
+
+.hang-ten-animation {
+  position: absolute;
+  top: 80px;
+  left: 22px;
+  right: 22px;
+
+  height: 245px;
+
+  z-index: 2;
+}
+
+.card-sun {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+  background: var(--orange);
+
+  transform: translateX(-50%);
+}
+
+.ocean-scene {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.wave path {
+  fill: none;
+  stroke: var(--navy);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.wave-one {
+  animation: wave-drift-one 4.5s ease-in-out infinite alternate;
+}
+
+.wave-two {
+  animation: wave-drift-two 5.5s ease-in-out infinite alternate;
+}
+
+.whale-tail {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+
+  animation: tail-wag 8s ease-in-out infinite;
+}
+
+.whale-tail path {
+  fill: var(--navy);
+}
+
+.whale-ripple {
+  fill: none;
+  stroke: var(--navy);
+  stroke-width: 3;
+  opacity: 0.55;
+}
+
+.splash {
+  display: none;
+}
+
+.hang-ten-card:hover .wave-one {
+  animation-duration: 3.3s;
+}
+
+.hang-ten-card:hover .wave-two {
+  animation-duration: 4s;
+}
+
+@keyframes wave-drift-one {
+  from {
+    transform: translateX(-5px) translateY(0);
+  }
+
+  to {
+    transform: translateX(5px) translateY(2px);
+  }
+}
+
+@keyframes wave-drift-two {
+  from {
+    transform: translateX(5px) translateY(2px);
+  }
+
+  to {
+    transform: translateX(-5px) translateY(0);
+  }
+}
+
+@keyframes tail-wag {
+  0%,
+  68%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  72% {
+    transform: rotate(-7deg);
+  }
+
+  76% {
+    transform: rotate(7deg);
+  }
+
+  80% {
+    transform: rotate(-4deg);
+  }
+
+  84% {
+    transform: rotate(4deg);
+  }
+
+  88% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Individual pages */
+
+.page-shell {
+  min-height: 100vh;
+  padding: 170px 24px 100px;
+  text-align: center;
+}
+
+.page-eyebrow {
+  margin-bottom: 20px;
+
+  color: var(--olive);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.page-title {
+  color: var(--orange);
+  font-family: "Fraunces", serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.9;
+}
+
+.page-subtitle {
+  margin-top: 18px;
+
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+.page-content {
+  max-width: 650px;
+  margin: 90px auto 70px;
+}
+
+.page-content h2 {
+  margin-bottom: 24px;
+
+  font-family: "DM Serif Display", serif;
+  font-size: 2.7rem;
+}
+
+.page-content p {
+  margin-bottom: 18px;
+
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.back-link {
+  color: var(--orange);
+  font-weight: 700;
+  text-underline-offset: 5px;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
   .celebrations {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -388,7 +608,7 @@ h1 {
   }
 
   .event-card {
-    min-height: 260px;
+    min-height: 500px;
   }
 }
 
@@ -397,8 +617,19 @@ h1 {
     scroll-behavior: auto;
   }
 
-  .sun-rays {
+  .sun-rays,
+  .wave-one,
+  .wave-two,
+  .whale-tail,
+  .whale-ripple,
+  .splash {
     animation: none;
+  }
+
+  .whale-tail,
+  .splash {
+    opacity: 1;
+    transform: none;
   }
 
   .event-card {
