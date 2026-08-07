@@ -189,7 +189,7 @@ a {
   width: min(660px, 72vw);
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 6px;
 }
 
 .hero-art {
@@ -200,7 +200,7 @@ a {
 
 .hero-art-sun {
   position: absolute;
-  top: 112px;
+  top: 64px;
   left: 92px;
 
   width: clamp(82px, 7.5vw, 112px);
@@ -264,7 +264,7 @@ a {
 }
 
 .lets-ride {
-  margin-top: 6px;
+  margin-top: 16px;
 
   display: flex;
   flex-direction: column;
