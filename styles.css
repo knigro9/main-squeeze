@@ -54,7 +54,7 @@ a {
   gap: 10px;
 
   color: var(--navy);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
   text-decoration: none;
@@ -150,7 +150,7 @@ a {
 
   color: var(--orange);
   font-family: "Fraunces", serif;
-  font-size: clamp(2.4rem, 4.5vw, 4.45rem);
+  font-size: clamp(calc(2.4rem - 2px), calc(4.5vw - 2px), calc(4.45rem - 2px));
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: 0.01em;
@@ -193,17 +193,18 @@ a {
 }
 
 .hero-art {
-  width: 100%;
+  width: 95%;
   height: auto;
   display: block;
+  transform: translateY(-0.15in);
 }
 
 .hero-art-sun {
   position: absolute;
-  top: 64px;
+  top: calc(64px - 0.15in);
   left: 92px;
 
-  width: clamp(82px, 7.5vw, 112px);
+  width: clamp(77.9px, 7.125vw, 106.4px);
   aspect-ratio: 1;
 
   transform: translate(-50%, -50%);
@@ -264,7 +265,7 @@ a {
 }
 
 .lets-ride {
-  margin-top: 16px;
+  margin-top: calc(16px - 0.20in);
 
   display: flex;
   flex-direction: column;
@@ -288,21 +289,21 @@ a {
 /* Event cards */
 
 .celebrations {
-  max-width: 1380px;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 80px 36px 140px;
+  padding: 39px 27px 110px;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .event-card {
   position: relative;
   overflow: hidden;
 
-  min-height: 500px;
-  padding: 30px;
+  min-height: 375px;
+  padding: 22px;
 
   display: flex;
   flex-direction: column;
@@ -401,145 +402,123 @@ a {
 
 /* Hang Ten animation */
 
-.hang-ten-animation {
-  position: absolute;
-  top: 80px;
-  left: 22px;
-  right: 22px;
-  z-index: 2;
+.hang-ten-card {
+  padding: 0;
+  background: var(--yellow);
+  color: var(--navy);
+}
 
-  height: 245px;
+.hang-ten-approved-inner {
+  position: absolute;
+  inset: 0;
+  width: calc(100% / 0.75);
+  height: calc(100% / 0.75);
+  transform: scale(0.75);
+  transform-origin: top left;
+  color: var(--navy);
+}
+
+.hang-ten-approved-inner .volume-label,
+.hang-ten-approved-inner .event-card-copy {
+  position: absolute;
+  z-index: 3;
+}
+
+.hang-ten-approved-inner .volume-label {
+  top: 20px;
+  left: 28px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.hang-ten-approved-inner .volume-label::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin-top: 10px;
+  background: var(--orange);
+}
+
+.hang-ten-approved-inner .event-card-copy {
+  left: 18px;
+  right: 42px;
+  bottom: 24px;
+  margin-top: 0;
+}
+
+.hang-ten-approved-inner h2 {
+  margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: 58px;
+  line-height: 0.9;
+  white-space: nowrap;
+}
+
+.hang-ten-approved-inner p {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.hang-ten-approved-inner p::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin: 12px 0;
+  background: var(--orange);
+}
+
+.hang-ten-approved-inner small {
+  display: block;
+  margin-top: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.hang-ten-scene {
+  position: absolute;
+  z-index: 2;
+  left: 7%;
+  right: 7%;
+  top: calc(24.5% + 0.2in);
+  height: 46%;
+}
+
+.hang-ten-art {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 15%;
+  height: auto;
 }
 
 .card-sun {
   position: absolute;
-  top: 6px;
-  left: 50%;
-
+  left: 13.6%;
+  top: calc(5.8% - 0.2in);
   width: 28px;
-  height: 28px;
-
+  aspect-ratio: 1;
   border-radius: 50%;
   background: var(--orange);
-
-  transform: translateX(-50%);
 }
 
-.ocean-scene {
+.hang-ten-card .splash-svg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   overflow: visible;
+  pointer-events: none;
 }
 
-.whale-tail {
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-
-  animation: tail-wave 10s cubic-bezier(0.45, 0, 0.25, 1) infinite;
-}
-
-.whale-tail path {
+.hang-ten-card .water-drop {
   fill: var(--navy);
 }
 
-.wave-line {
-  fill: none;
-  stroke: var(--navy);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  vector-effect: non-scaling-stroke;
-}
-
-.wave-line-back {
-  stroke-width: 2.6;
-  opacity: 0.72;
-
-  animation: wave-back 8.5s ease-in-out infinite alternate;
-}
-
-.wave-line-mid {
-  stroke-width: 3.2;
-  opacity: 0.88;
-
-  animation: wave-mid 7s ease-in-out infinite alternate;
-}
-
-.wave-line-front {
-  stroke-width: 3.8;
-
-  animation: wave-front 6s ease-in-out infinite alternate;
-}
-
-.hang-ten-card:hover .wave-line-back {
-  animation-duration: 7s;
-}
-
-.hang-ten-card:hover .wave-line-mid {
-  animation-duration: 5.8s;
-}
-
-.hang-ten-card:hover .wave-line-front {
-  animation-duration: 4.8s;
-}
-
-@keyframes wave-back {
-  from {
-    transform: translate3d(-3px, 0, 0);
-  }
-
-  to {
-    transform: translate3d(3px, 0.5px, 0);
-  }
-}
-
-@keyframes wave-mid {
-  from {
-    transform: translate3d(4px, 0.5px, 0);
-  }
-
-  to {
-    transform: translate3d(-4px, -0.5px, 0);
-  }
-}
-
-@keyframes wave-front {
-  from {
-    transform: translate3d(-5px, 0, 0);
-  }
-
-  to {
-    transform: translate3d(5px, 0.8px, 0);
-  }
-}
-
-@keyframes tail-wave {
-  0%,
-  66%,
-  100% {
-    transform: rotate(0deg);
-  }
-
-  72% {
-    transform: rotate(-5deg);
-  }
-
-  78% {
-    transform: rotate(4deg);
-  }
-
-  84% {
-    transform: rotate(-3deg);
-  }
-
-  90% {
-    transform: rotate(2deg);
-  }
-
-  95% {
-    transform: rotate(0deg);
-  }
-}
-
+/* Individual pages */
 /* Individual pages */
 
 .page-shell {
@@ -663,7 +642,7 @@ a {
   }
 
   .event-card {
-    min-height: 500px;
+    min-height: 420px;
   }
 }
 
@@ -678,7 +657,8 @@ a {
   .wave-line-back,
   .wave-line-mid,
   .wave-line-front,
-  .whale-tail {
+  .whale-tail,
+  .splash-drop {
     animation: none;
   }
 
