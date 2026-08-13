@@ -385,9 +385,10 @@ a {
   color: var(--navy);
 }
 
-.just-us {
+.just-us,
+.just-us-card {
   background: var(--orange);
-  color: var(--cream);
+  color: var(--navy);
 }
 
 .with-family {
@@ -516,6 +517,146 @@ a {
 
 .hang-ten-card .water-drop {
   fill: var(--navy);
+}
+
+
+
+/* Just Us card */
+
+.just-us-card {
+  padding: 0;
+  background: var(--orange);
+  color: var(--navy);
+}
+
+.just-us-approved-inner {
+  position: absolute;
+  inset: 0;
+  width: calc(100% / 0.75);
+  height: calc(100% / 0.75);
+  transform: scale(0.75);
+  transform-origin: top left;
+  color: var(--navy);
+}
+
+.just-us-approved-inner .volume-label,
+.just-us-approved-inner .event-card-copy {
+  position: absolute;
+  z-index: 3;
+}
+
+.just-us-approved-inner .volume-label {
+  top: 20px;
+  left: 28px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.just-us-approved-inner .volume-label::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin-top: 10px;
+  background: var(--navy);
+}
+
+.just-us-approved-inner .event-card-copy {
+  left: 18px;
+  right: 42px;
+  bottom: 24px;
+  margin-top: 0;
+  text-align: left;
+}
+
+.just-us-approved-inner h2 {
+  margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: 58px;
+  line-height: 0.9;
+  white-space: nowrap;
+}
+
+.just-us-approved-inner p {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.just-us-approved-inner p::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin: 12px 0;
+  background: var(--navy);
+}
+
+.just-us-approved-inner small {
+  display: block;
+  margin-top: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.just-us-scene {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 22%;
+  height: 45%;
+}
+
+.just-us-toast {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.toast-line {
+  fill: none;
+  stroke: var(--navy);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wine-fill {
+  fill: #641b2d;
+  stroke: none;
+}
+
+.clink-lines {
+  fill: none;
+  stroke: var(--cream);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transform-origin: 210px 28px;
+  animation: clinkBlink 4.6s ease-in-out infinite;
+}
+
+@keyframes clinkBlink {
+  0%, 7% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  8%, 15% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  16%, 23% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  24%, 100% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
 }
 
 /* Individual pages */
@@ -654,6 +795,7 @@ a {
   }
 
   .sun-rays,
+  .clink-lines,
   .wave-line-back,
   .wave-line-mid,
   .wave-line-front,
