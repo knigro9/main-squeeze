@@ -808,3 +808,173 @@ a {
     transition: none;
   }
 }
+
+/* Secondary links */
+
+.secondary-links {
+  position: relative;
+  max-width: 1160px;
+  min-height: 150px;
+  margin: -18px auto 0;
+  padding: 0 27px 110px;
+}
+
+.secondary-link {
+  position: absolute;
+  top: -48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--navy);
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Desktop: center the three links between the four celebration cards. */
+.secondary-link:nth-child(1) {
+  left: 25%;
+  transform: translateX(-50%);
+}
+
+.secondary-link:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.secondary-link:nth-child(3) {
+  left: 75%;
+  transform: translateX(-50%);
+}
+
+.secondary-link:nth-child(1):hover,
+.secondary-link:nth-child(1):focus-visible,
+.secondary-link:nth-child(2):hover,
+.secondary-link:nth-child(2):focus-visible,
+.secondary-link:nth-child(3):hover,
+.secondary-link:nth-child(3):focus-visible {
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.secondary-icon {
+  width: 100%;
+  height: 74px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-icon img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+
+  display: block;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.secondary-icon-cats img {
+  width: 86px;
+  max-height: 59px;
+}
+
+.secondary-icon-record img {
+  width: 82px;
+  max-height: 64px;
+}
+
+.secondary-icon-key img {
+  width: 50px;
+  max-height: 68px;
+  transform: rotate(-5deg);
+  transform-origin: 50% 50%;
+}
+
+.secondary-label {
+  margin-top: 8px;
+
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.0125rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .secondary-links {
+    min-height: auto;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 90px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .secondary-link {
+    position: static;
+    transform: none !important;
+  }
+
+  .secondary-icon {
+    height: 72px;
+  }
+
+  .secondary-icon-cats img {
+    width: 86px;
+    max-height: 59px;
+  }
+
+  .secondary-icon-record img {
+    width: 82px;
+    max-height: 64px;
+  }
+
+  .secondary-icon-key img {
+    width: 50px;
+    max-height: 68px;
+  }
+
+  .secondary-label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .secondary-links {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: -8px;
+    padding-bottom: 90px;
+  }
+
+  .secondary-icon {
+    height: 88px;
+  }
+
+  .secondary-icon-cats img {
+    width: 110px;
+    max-height: 76px;
+  }
+
+  .secondary-icon-record img {
+    width: 98px;
+    max-height: 76px;
+  }
+
+  .secondary-icon-key img {
+    width: 58px;
+    max-height: 80px;
+  }
+
+  .secondary-label {
+    font-size: 0.885rem;
+  }
+}
+
