@@ -978,3 +978,942 @@ a {
   }
 }
 
+/* =========================================================
+   HANG TEN EVENT PAGE — LOCKED ONE-SCREEN TEMPLATE
+   Approved 2026-08-23
+   ========================================================= */
+
+.hang-ten-page {
+  --ht-cream: var(--cream);
+  --ht-yellow: var(--yellow);
+  --ht-orange: var(--orange);
+  --ht-navy: var(--navy);
+
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  min-height: 100svh;
+  overflow: hidden;
+
+  background: var(--ht-cream);
+  color: var(--ht-navy);
+}
+
+.hang-ten-board {
+  --ht-scale: 1;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 1692px;
+  height: 930px;
+  overflow: hidden;
+  container-type: inline-size;
+
+  background: var(--ht-cream);
+
+  transform: translate(-50%, -50%) scale(var(--ht-scale));
+  transform-origin: center center;
+}
+
+/* Barely-there printed-paper grain. */
+.hang-ten-board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.028;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(circle, rgba(23, 59, 91, 0.34) 0 0.32px, transparent 0.5px),
+    radial-gradient(circle, rgba(217, 87, 28, 0.22) 0 0.28px, transparent 0.48px);
+  background-position: 0 0, 5px 7px;
+  background-size: 8px 8px, 11px 11px;
+}
+
+/* ---------- Page header ---------- */
+.event-page-header {
+  position: absolute;
+  z-index: 20;
+  left: 3.0cqw;
+  right: 4.0cqw;
+  top: 2.2cqw;
+
+  height: 3.1cqw;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.event-page-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.88cqw;
+  flex: 0 0 auto;
+
+  color: var(--ht-navy);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.10cqw;
+  font-weight: 700;
+  letter-spacing: 0.08cqw;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.event-page-logo span {
+  color: var(--ht-orange);
+  font-size: 1.68cqw;
+  line-height: 1;
+}
+
+.event-page-nav {
+  position: absolute;
+  left: 41.4cqw;
+  top: 0.08cqw;
+
+  display: flex;
+  align-items: center;
+  gap: 3.60cqw;
+  white-space: nowrap;
+}
+
+.event-page-nav a {
+  position: relative;
+  display: inline-block;
+
+  color: var(--ht-navy);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.10cqw;
+  font-weight: 700;
+  letter-spacing: 0.03cqw;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 0.18s ease;
+}
+
+.event-page-nav a:hover,
+.event-page-nav a:focus-visible,
+.event-page-nav a.active {
+  color: var(--ht-orange);
+}
+
+.event-page-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.48cqw);
+
+  width: 3.2cqw;
+  height: 0.5cqw;
+
+  opacity: 0;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: left center;
+
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 8'%3E%3Cpath d='M1 4 C6 0 11 8 16 4 S26 0 31 4 S41 8 46 4 S51 0 53 4' fill='none' stroke='%23d9571c' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+
+  transition: transform 0.22s ease, opacity 0.16s ease;
+}
+
+.event-page-nav a.active::after,
+.event-page-nav a:hover::after,
+.event-page-nav a:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ---------- Fixed one-screen composition ---------- */
+.hang-ten-shell {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hang-ten-page-hero {
+  position: absolute;
+  left: 3.0cqw;
+  top: 6.85cqw;
+  width: 38.55cqw;
+  height: 29.45cqw;
+  min-height: 0;
+  overflow: hidden;
+
+  display: block;
+
+  border-radius: 1.85cqw;
+  background: var(--ht-yellow);
+}
+
+.hang-ten-hero-copy {
+  position: absolute;
+  z-index: 3;
+  left: 2.8cqw;
+  top: 2.95cqw;
+  width: 21.0cqw;
+  padding: 0;
+}
+
+.hang-ten-volume {
+  margin: 0 0 2.75cqw;
+
+  color: var(--ht-orange);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.02cqw;
+  font-weight: 700;
+  letter-spacing: 0.03cqw;
+  line-height: 1;
+}
+
+.hang-ten-hero-copy h1 {
+  margin: 0;
+
+  color: var(--ht-navy);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 6.80cqw;
+  font-weight: 900;
+  line-height: 0.77;
+  letter-spacing: -0.26cqw;
+}
+
+.hang-ten-orange-rule {
+  display: block;
+  width: 4.2cqw;
+  height: 0.18cqw;
+  margin: 2.0cqw 0 2.20cqw;
+  border-radius: 999px;
+  background: var(--ht-orange);
+}
+
+.hang-ten-location {
+  margin: 0;
+
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.28cqw;
+  font-weight: 700;
+  line-height: 1.24;
+  letter-spacing: 0.03cqw;
+}
+
+.hang-ten-tagline {
+  margin: 1.65cqw 0 0;
+
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.34cqw;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.hang-ten-hero-art {
+  position: absolute;
+  z-index: 2;
+
+  /* Exact approved preview position: board x=400, y=315, w=305. */
+  left: 20.64cqw;
+  top: 11.77cqw;
+  right: auto;
+
+  width: 18.026cqw;
+  max-width: none;
+  margin: 0;
+  display: block;
+
+  transform-origin: 52% 54%;
+  animation: hangTenHeroDrift 4.8s ease-in-out infinite;
+}
+
+.hang-ten-hero-sun-art {
+  position: absolute;
+  z-index: 2;
+
+  /* Static sun from the approved preview. */
+  left: 29.39cqw;
+  top: 4.08cqw;
+  width: 8.27cqw;
+  max-width: none;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+@keyframes hangTenHeroDrift {
+  0%, 62%, 100% { transform: translateY(0) rotate(0deg); }
+  70%           { transform: translateY(-0.16cqw) rotate(-1.35deg); }
+  78%           { transform: translateY(0.10cqw) rotate(1.10deg); }
+  86%           { transform: translateY(-0.05cqw) rotate(-0.55deg); }
+  94%           { transform: translateY(0) rotate(0deg); }
+}
+
+/* Let the middle wrapper disappear so its children become board-level pieces. */
+.hang-ten-info-grid {
+  display: contents;
+}
+
+/* ---------- The Plan ---------- */
+.hang-ten-plan-card {
+  position: absolute;
+  left: 43.0cqw;
+  top: 6.85cqw;
+  width: 26.8cqw;
+  height: 45.0cqw;
+  min-height: 0;
+  padding: 2.05cqw 2.25cqw 2.4cqw;
+
+  overflow: visible;
+  border: 0.12cqw solid var(--ht-navy);
+  border-radius: 1.08cqw;
+  background: transparent;
+}
+
+.hang-ten-section-title {
+  margin: 0;
+
+  color: var(--ht-navy);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.52cqw;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.03cqw;
+}
+
+.hang-ten-title-wave {
+  display: block;
+  width: 3.0cqw;
+  height: 0.56cqw;
+  margin: 0.72cqw 0 1.35cqw;
+
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 8'%3E%3Cpath d='M1 4 C5 0 9 8 13 4 S21 0 25 4 S33 8 41 4' fill='none' stroke='%23d9571c' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+.hang-ten-timeline {
+  height: calc(100% - 4.15cqw);
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.hang-ten-day {
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 4.4cqw 1.4cqw 1fr;
+  column-gap: 0.85cqw;
+}
+
+.hang-ten-date {
+  padding-top: 0.05cqw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15cqw;
+
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.86cqw;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.02cqw;
+}
+
+.hang-ten-date strong {
+  color: var(--ht-orange);
+}
+
+.hang-ten-dot-line {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hang-ten-dot-line::after {
+  content: "";
+  position: absolute;
+  top: 0.82cqw;
+  bottom: -0.7cqw;
+  width: 0.10cqw;
+  min-width: 1px;
+  background: var(--ht-navy);
+}
+
+.hang-ten-day.last .hang-ten-dot-line::after {
+  display: none;
+}
+
+.hang-ten-dot-line i {
+  position: relative;
+  z-index: 1;
+  width: 0.68cqw;
+  height: 0.68cqw;
+  margin-top: 0.12cqw;
+  border-radius: 50%;
+  background: var(--ht-orange);
+  box-shadow: 0 0 0 0.12cqw var(--ht-cream);
+}
+
+.hang-ten-day-copy h3 {
+  margin: 0 0 0.22cqw;
+
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.03cqw;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: 0.02cqw;
+}
+
+.hang-ten-day-copy p {
+  margin: 0;
+
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.88cqw;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+/* The two tiny waves are part of The Plan outline. */
+/* ---------- Open right column ---------- */
+.hang-ten-side-column {
+  position: absolute;
+  left: 73.35cqw;
+  top: 8.85cqw;
+  width: 20.25cqw;
+  height: 43.0cqw;
+  min-height: 0;
+  padding: 0;
+}
+
+.hang-ten-soundtrack,
+.hang-ten-good-to-know {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.hang-ten-soundtrack {
+  top: 0;
+}
+
+.hang-ten-soundtrack .hang-ten-title-wave {
+  margin-bottom: 1.65cqw;
+}
+
+.hang-ten-lemons {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 17.14cqw;
+  max-width: none;
+  margin: 0;
+  display: block;
+  transform: translateX(-1.42cqw);
+}
+
+.hang-ten-spotify {
+  position: absolute;
+  left: 0;
+  top: 15.70cqw;
+
+  width: 15.486cqw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+
+  display: block;
+
+  border-radius: 0;
+  background: transparent;
+  color: var(--ht-cream);
+  text-decoration: none;
+
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+
+
+.hang-ten-spotify-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hang-ten-spotify:hover,
+.hang-ten-spotify:focus-visible {
+  transform: translateY(-0.12cqw) rotate(-0.5deg);
+}
+
+.hang-ten-spotify:active {
+  transform: translateY(0.06cqw) rotate(0deg) scale(0.992);
+}
+
+.spotify-mark,
+.spotify-mark svg {
+  width: 1.42cqw;
+  height: 1.42cqw;
+  display: block;
+  flex: 0 0 1.42cqw;
+}
+
+.hang-ten-good-to-know {
+  top: 24.60cqw;
+}
+
+.hang-ten-good-to-know .hang-ten-title-wave {
+  margin-bottom: 1.08cqw;
+}
+
+.hang-ten-good-to-know ul {
+  margin: 0;
+  padding-left: 1.55cqw;
+
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.00cqw;
+  font-weight: 600;
+  line-height: 2.08;
+}
+
+.hang-ten-good-to-know li::marker {
+  color: var(--ht-orange);
+}
+
+.hang-ten-shaka {
+  position: absolute;
+  z-index: 12;
+
+  /*
+    The source image now includes the entire wrist.
+    The larger transparent canvas keeps the visible hand at essentially
+    the same size/position as the approved version without clipping.
+  */
+  left: 85.25%;
+  top: 86.10%;
+  right: auto;
+  bottom: auto;
+
+  width: 8.10%;
+  max-width: none;
+
+  transform-origin: 52% 78%;
+  animation: hangTenShakaRock 3.4s ease-in-out infinite;
+}
+
+@keyframes hangTenShakaRock {
+  0%, 68%, 100% { transform: rotate(-4deg); }
+  74%            { transform: rotate(8deg); }
+  80%            { transform: rotate(-8deg); }
+  86%            { transform: rotate(7deg); }
+  92%            { transform: rotate(-4deg); }
+}
+
+/* ---------- The Place ---------- */
+.hang-ten-place-card {
+  position: absolute;
+  left: 3.0cqw;
+  top: 37.75cqw;
+  width: 38.55cqw;
+  height: 14.05cqw;
+  min-height: 0;
+  margin: 0;
+  padding: 1.25cqw 1.55cqw;
+
+  display: grid;
+  grid-template-columns: 48% 1fr;
+  gap: 1.25cqw;
+  align-items: center;
+
+  border: 0.12cqw solid var(--ht-navy);
+  border-radius: 1.08cqw;
+  background: transparent;
+}
+
+.hang-ten-place-art {
+  width: 16.3cqw;
+  max-width: none;
+  justify-self: center;
+  display: block;
+}
+
+.hang-ten-place-copy .hang-ten-section-title {
+  font-size: 1.26cqw;
+}
+
+.hang-ten-place-copy .hang-ten-title-wave {
+  width: 2.65cqw;
+  height: 0.48cqw;
+  margin: 0.58cqw 0 0.85cqw;
+}
+
+.hang-ten-place-copy p {
+  max-width: none;
+  margin: 0;
+
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.89cqw;
+  font-weight: 600;
+  line-height: 1.48;
+}
+
+/* ---------- Mobile / small tablet ---------- */
+@media (max-width: 999px) {
+  .hang-ten-page {
+    position: static;
+    width: auto;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+    display: block;
+  }
+
+  .hang-ten-board {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    container-type: normal;
+    transform: none !important;
+  }
+
+  .hang-ten-board::after {
+    position: fixed;
+  }
+
+  .event-page-header {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: min(100% - 32px, 1180px);
+    height: auto;
+    margin: 0 auto;
+    padding: 22px 0 20px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .event-page-logo {
+    font-size: 0.72rem;
+    letter-spacing: 1.4px;
+  }
+
+  .event-page-logo span {
+    font-size: 1.25rem;
+  }
+
+  .event-page-nav {
+    position: static;
+    width: 100%;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    gap: 26px;
+    scrollbar-width: none;
+  }
+
+  .event-page-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .event-page-nav a {
+    font-size: 0.72rem;
+    letter-spacing: 1.1px;
+  }
+
+  .event-page-nav a::after {
+    top: calc(100% + 7px);
+    width: 54px;
+    height: 8px;
+  }
+
+  .hang-ten-shell {
+    position: relative;
+    inset: auto;
+    width: min(100% - 32px, 760px);
+    height: auto;
+    margin: 0 auto;
+    padding: 0 0 70px;
+  }
+
+  .hang-ten-page-hero,
+  .hang-ten-plan-card,
+  .hang-ten-side-column,
+  .hang-ten-place-card {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .hang-ten-page-hero {
+    min-height: 520px;
+    border-radius: 24px;
+  }
+
+  .hang-ten-hero-copy {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 56%;
+    padding: 42px 0 44px 34px;
+  }
+
+  .hang-ten-volume {
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+  }
+
+  .hang-ten-hero-copy h1 {
+    font-size: clamp(5rem, 20vw, 7rem);
+    letter-spacing: -0.055em;
+  }
+
+  .hang-ten-orange-rule {
+    width: 58px;
+    height: 3px;
+    margin: 24px 0 14px;
+  }
+
+  .hang-ten-location {
+    font-size: 1rem;
+  }
+
+  .hang-ten-tagline {
+    margin-top: 12px;
+    font-size: 1.15rem;
+  }
+
+  .hang-ten-hero-art {
+    right: 3%;
+    top: 24%;
+    width: 48%;
+  }
+
+  .hang-ten-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-top: 28px;
+  }
+
+  .hang-ten-plan-card {
+    min-height: 650px;
+    padding: 30px 26px 52px;
+    border: 2px solid var(--ht-navy);
+    border-radius: 18px;
+  }
+
+  .hang-ten-section-title {
+    font-size: 1.3rem;
+  }
+
+  .hang-ten-title-wave {
+    width: 42px;
+    height: 8px;
+    margin: 10px 0 22px;
+  }
+
+  .hang-ten-timeline {
+    height: auto;
+    display: grid;
+  }
+
+  .hang-ten-day {
+    min-height: 112px;
+    grid-template-columns: 66px 22px 1fr;
+    column-gap: 11px;
+  }
+
+  .hang-ten-date {
+    font-size: 0.85rem;
+  }
+
+  .hang-ten-dot-line::after {
+    top: 12px;
+    bottom: -10px;
+    width: 2px;
+  }
+
+  .hang-ten-dot-line i {
+    width: 9px;
+    height: 9px;
+    margin-top: 2px;
+    box-shadow: 0 0 0 2px var(--ht-cream);
+  }
+
+  .hang-ten-day-copy h3 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+  }
+
+  .hang-ten-day-copy p {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .hang-ten-side-column {
+    min-height: 610px;
+    display: block;
+  }
+
+  .hang-ten-soundtrack,
+  .hang-ten-good-to-know {
+    position: relative;
+    top: auto;
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .hang-ten-soundtrack .hang-ten-title-wave,
+  .hang-ten-good-to-know .hang-ten-title-wave {
+    margin-bottom: 18px;
+  }
+
+  .hang-ten-lemons {
+    width: min(45%, 220px);
+    max-width: 220px;
+    margin: 0 auto 14px;
+  }
+
+  .hang-ten-spotify {
+    max-width: 100%;
+    padding: 10px 18px;
+    gap: 8px;
+    font-size: 0.82rem;
+    letter-spacing: 1.3px;
+  }
+
+  .spotify-mark,
+  .spotify-mark svg {
+    width: 21px;
+    height: 21px;
+    flex-basis: 21px;
+  }
+
+  .hang-ten-good-to-know {
+    margin-top: 62px;
+    min-height: 260px;
+  }
+
+  .hang-ten-good-to-know ul {
+    padding-left: 22px;
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .hang-ten-shaka {
+    position: absolute;
+    left: auto;
+    top: auto;
+    right: 22px;
+    bottom: 300px;
+    width: 90px;
+  }
+
+  .hang-ten-place-card {
+    margin-top: 30px;
+    padding: 20px 24px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    border: 2px solid var(--ht-navy);
+    border-radius: 18px;
+  }
+
+  .hang-ten-place-art {
+    width: min(70%, 280px);
+    max-width: 280px;
+  }
+
+  .hang-ten-place-copy .hang-ten-section-title {
+    font-size: 1.25rem;
+  }
+
+  .hang-ten-place-copy .hang-ten-title-wave {
+    width: 42px;
+    height: 8px;
+    margin: 8px 0 12px;
+  }
+
+  .hang-ten-place-copy p {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hang-ten-hero-art,
+  .hang-ten-shaka {
+    animation: none;
+  }
+
+  .event-page-nav a,
+  .event-page-nav a::after,
+  .hang-ten-spotify {
+    transition: none;
+  }
+}
+
+
+.hang-ten-lemons-frame {
+  position: absolute;
+  left: 0;
+  top: 3.40cqw;
+  width: 15.486cqw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hang-ten-lemons {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 14.90cqw;
+  transform: none;
+}
+
+
+@media (max-width: 999px) {
+  .hang-ten-lemons-frame {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    margin: 0 0 14px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hang-ten-lemons {
+    width: min(55%, 260px);
+    max-width: 260px;
+    margin: 0;
+    transform: none;
+  }
+
+  .hang-ten-spotify {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(100%, 262px);
+    max-width: 262px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
