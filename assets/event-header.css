@@ -112,3 +112,11 @@
 :is(.just-us-page,.with-family-page) .event-page-nav a{font-size:.72rem;letter-spacing:1.1px;line-height:1;flex-shrink:0}
 :is(.just-us-page,.with-family-page) .event-page-nav a::after{top:calc(100% + 7px);width:54px;height:8px}
 }
+
+/* Align the family masthead with the main content, including wide screens. */
+@media(min-width:1000px){
+  .with-family-page .event-page-logo{
+    position:relative;
+    left:calc(max(0px, (100vw - 1440px) / 2) + 4vw - (50vw - var(--event-unit) * 47));
+  }
+}
