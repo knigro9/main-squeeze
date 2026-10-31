@@ -135,7 +135,7 @@ a {
 
 .hero {
   min-height: 100svh;
-  padding: 84px 24px 32px;
+  padding: 72px 24px 32px;
 
   display: flex;
   flex-direction: column;

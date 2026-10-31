@@ -1,0 +1,37 @@
+/* Use the same horizontal content bounds as the fitted Hang Ten board. */
+:root {
+  --site-unit: max(1.692px, min(calc(1vw - .24px), calc(1.8193548387svh - .4366451613px)));
+  --site-content-width: calc(var(--site-unit) * 93);
+  --site-content-left: calc(50% - var(--site-unit) * 47);
+}
+.home-page .hero,
+.home-page .celebrations,
+.home-page .juicy-details.secondary-links,
+.just-us-page > main,
+.with-family-page > main {
+  width: var(--site-content-width);
+  max-width: none;
+  margin-left: var(--site-content-left);
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.home-page .site-header {
+  padding-left: var(--site-content-left);
+  padding-right: calc(100% - var(--site-content-left) - var(--site-content-width));
+}
+:is(.just-us-page,.with-family-page) .event-page-header {
+  width: var(--site-content-width);
+  margin-left: var(--site-content-left);
+  margin-right: 0;
+}
+.with-family-page .event-page-logo { left: 0; }
+.just-us-page:not(.party-sketch) .scene { max-width: 100%; }
+@media (max-width:999px) {
+  :root { --site-content-width: calc(100% - 32px); --site-content-left: 16px; }
+}
+
+/* Keep event copy on the shared column edges at every desktop width. */
+.with-family-page .venue .caption { max-width: none; width: 100%; margin-left: 0; margin-right: 0; }
+/* Scale the complete illustration together, including the animated sun. */
+.home-page .hero-art-wrap { zoom: .88; }
