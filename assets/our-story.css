@@ -1,0 +1,121 @@
+.story {
+  container-type: inline-size;
+  padding-bottom: 32px;
+}
+.story-heading {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+  margin-bottom: 2.6cqw;
+}
+.story-heading h1, .story-copy h2 {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  line-height: 1;
+}
+.story-heading h1 {
+  font-size: clamp(42px, 7.4cqw, 108px);
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.story-rule { flex: 1; border-top: 2px solid var(--orange); }
+.story-heading img { width: 14%; height: auto; mix-blend-mode: multiply; }
+.story-spread {
+  display: grid;
+  grid-template-columns: 46% 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 1.8cqw 4cqw;
+}
+.story-photo, .story-film span { background: #868d70; }
+.story-photo {
+  display: grid;
+  place-items: center;
+  color: var(--cream);
+  font-size: clamp(11px, 1.35cqw, 20px);
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.story-portrait { grid-row: span 2; min-height: 35cqw; }
+.story-copy h2 { font-size: clamp(32px, 4cqw, 60px); }
+.story-copy p {
+  position: relative;
+  max-width: 36ch;
+  margin-top: 1.2cqw;
+  padding: 0 0 0 2.7cqw;
+  border-left: 3px solid var(--orange);
+  font-size: clamp(16px, 1.95cqw, 29px);
+  line-height: 1.35;
+}
+.story-copy p::before, .story-copy p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: .6em;
+  border-top: 3px solid var(--orange);
+}
+.story-copy p::before { top: 0; }
+.story-copy p::after { bottom: 0; }
+.story-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.2cqw; align-self: end; }
+.story-pair .story-photo { aspect-ratio: 1.38; }
+.story-pair figcaption { margin-top: .45em; font-size: clamp(14px, 1.55cqw, 22px); font-style: italic; }
+.story-film {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .6cqw;
+  margin-top: 2.5cqw;
+  height: clamp(68px, 11.3cqw, 172px);
+  padding: clamp(8px, 1.35cqw, 20px) .65cqw;
+  background: var(--navy);
+}
+.story-film::before, .story-film::after {
+  content: "";
+  position: absolute;
+  inset-inline: .55cqw;
+  height: clamp(4px, .67cqw, 10px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10' viewBox='0 0 24 10'%3E%3Crect width='12' height='10' rx='2' fill='%23f7efdf'/%3E%3C/svg%3E") left / auto 100% repeat-x;
+}
+.story-film::before { top: .28cqw; }
+.story-film::after { bottom: .28cqw; }
+@media (max-width: 650px) {
+  .story-heading { gap: 12px; margin: 12px 0 22px; }
+  .story-heading img { width: 19%; }
+  .story-spread { grid-template-columns: 1fr; gap: 22px; }
+  .story-portrait { grid-row: auto; aspect-ratio: 1.45; }
+  .story-copy p { padding-left: 16px; margin-top: 12px; }
+  .story-film { margin-top: 24px; }
+}
+/* Let the photo areas share the space left by the navigation and copy. */
+@media (min-width: 651px) {
+  .our-story-page {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100svh;
+  }
+  .story {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: clamp(12px, 2.1svh, 24px);
+    padding-bottom: clamp(16px, 3svh, 32px);
+  }
+  .story-heading { margin-bottom: 0; }
+  .story-heading img { max-height: 10svh; object-fit: contain; object-position: right; }
+  .story-heading h1 { font-size: clamp(42px, min(7.4cqw, 10svh), 108px); }
+  .story-spread { grid-template-rows: auto minmax(min-content, 1fr); row-gap: 1.8svh; }
+  .story-portrait { min-height: 0; }
+  .story-pair { align-self: stretch; }
+  .story-pair figure { display: grid; grid-template-rows: minmax(9svh, 1fr) auto; }
+  .story-pair .story-photo { aspect-ratio: auto; }
+  .story-copy h2 { font-size: clamp(30px, min(4cqw, 5.5svh), 60px); }
+  .story-copy p { max-width: none; font-size: clamp(16px, min(1.95cqw, 2.8svh), 29px); }
+  .story-film { height: clamp(54px, 12svh, 150px); margin-top: 0; }
+}
+@media (max-width: 650px) {
+  .story-heading { margin: 4px 0 12px; }
+  .story-portrait { min-height: 100px; height: min(22svh, 54cqw); aspect-ratio: auto; }
+  .story-spread { gap: 12px; }
+  .story-pair .story-photo { height: min(13svh, 30cqw); aspect-ratio: auto; }
+  .story-film { margin-top: 14px; height: 58px; }
+  .story { padding-bottom: 14px; }
+}

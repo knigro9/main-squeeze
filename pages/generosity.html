@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generosity | The Main Squeeze</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../assets/event-header.css?v=generosity">
+  <link rel="stylesheet" href="../assets/site-margins.css?v=generosity">
+  <link rel="stylesheet" href="../assets/generosity.css?v=spin">
+</head>
+<body class="generosity-page">
+  <header class="event-page-header">
+    <a class="event-page-logo" href="../index.html"><span class="sun" aria-hidden="true">☀</span>Our Union Celebrations</a>
+    <nav class="event-page-nav" aria-label="Celebrations">
+      <a href="hang-ten.html">Hang Ten</a>
+      <a href="just-us.html">Just Us</a>
+      <a href="with-family.html">With Family</a>
+      <a href="party-time.html">Party Time</a>
+      <a href="our-story.html">Our Story</a>
+    </nav>
+  </header>
+<main>
+<h1>Generosity</h1>
+<div class="spread">
+<div class="art">
+<svg class="turntable" viewBox="0 0 440 380" role="img" aria-label="Our turntable with a slowly spinning record">
+  <defs>
+    <filter id="record-ink-only" color-interpolation-filters="sRGB">
+<feColorMatrix type="matrix" values="0 0 0 0 0.0902  0 0 0 0 0.2314  0 0 0 0 0.3569  -0.8504 -2.8608 -0.2888 0 3"/>
+<feComposite in2="SourceGraphic" operator="in"/>
+</filter>
+    <image id="player-drawing" href="../assets/generosity-player.png" width="440" height="380"/>
+    <!-- Mirror the unobstructed half to recover the grooves underneath the tonearm. -->
+    <clipPath id="groove-half"><rect x="-96" y="-96" width="96" height="192"/></clipPath>
+    <g id="left-grooves" clip-path="url(#groove-half)">
+      <image href="../assets/generosity-player.png" width="440" height="380"
+             transform="scale(1 2) translate(-171.5 -232)"/>
+    </g>
+    <mask id="moving-vinyl" maskUnits="userSpaceOnUse" x="0" y="0" width="440" height="380">
+      <ellipse cx="171.5" cy="232" rx="90" ry="45" fill="white"/>
+      <path d="M211 252 L237 236 L242 236 L276 192 L289 194 L250 246 L249 254 L228 269 L212 264 Z"/>
+      <ellipse cx="171.5" cy="230" rx="5.8" ry="6.5"/>
+    </mask>
+  </defs>
+  <g filter="url(#record-ink-only)">
+    <use href="#player-drawing"/>
+    <g class="moving-vinyl" mask="url(#moving-vinyl)">
+      <g transform="translate(171.5 232) scale(1 .5)">
+        <g class="vinyl-spin">
+          <use href="#left-grooves"/>
+          <use href="#left-grooves" transform="scale(-1 1)"/>
+          <path d="M-21 -14 Q-15 -21 -8 -21" fill="none" stroke="#173b5b" stroke-width="2.6" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+</div>
+<section>
+<h2>Music at home</h2>
+<p>We’d love to put a record on in the living room and hear it from the kitchen. We’re picking out a turntable and speakers together.</p>
+<details>
+<summary class="link">Chip in for the stereo</summary>
+<p>We’ll share the group gift link here soon.</p>
+</details>
+</section>
+<aside>
+<h3>A couple other things</h3>
+<div class="item">East Fork<small>Gift card</small>
+</div>
+<div class="item">A coffee maker<small>Still picking one out</small>
+</div>
+</aside>
+</div>
+</main>
+</body>
+</html>

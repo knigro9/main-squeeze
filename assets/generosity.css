@@ -1,0 +1,108 @@
+.generosity-page {
+  background:#f7efdf;
+  color:#173b5b
+}
+main {
+  padding-block:clamp(36px,8vh,100px)
+}
+
+h1 {
+  font:normal clamp(58px,8vw,124px)/.95 "DM Serif Display",Georgia,serif;
+  color:#173b5b;
+  letter-spacing:-.055em;
+  margin:0
+}
+
+.spread {
+  margin-top:clamp(32px,7vh,76px);
+  display:grid;
+  grid-template-columns:32% 1fr 21%;
+  gap:4%;
+  align-items:center
+}
+
+.art .turntable {
+  width:100%;
+  max-height:34vh;
+  display:block
+}
+h2 {
+  font:normal clamp(29px,3.7vw,60px)/1.03 "DM Serif Display",Georgia,serif;
+  margin:0 0 .35em
+}
+
+p,.item {
+  font:normal clamp(17px,1.6vw,25px)/1.45 "Source Serif 4",Georgia,serif
+}
+p {
+  margin:0 0 1em
+}
+ .link {
+  cursor:pointer;
+  display:inline-block;
+  font:italic 600 clamp(17px,1.4vw,22px) Georgia,serif;
+  border-bottom:2px solid #d9571c;
+  padding-bottom:3px
+}
+
+aside {
+  border-left:1px solid #aaa18f;
+  padding-left:12%;
+  align-self:center
+}
+aside h3 {
+  font:italic normal 19px Georgia,serif;
+  color:#666b46;
+  margin:0 0 18px
+}
+.item {
+  margin:12px 0
+}
+ .item small {
+  display:block;
+  font-size:.76em;
+  font-style:italic
+}
+
+@media(max-width:720px) {
+  main {
+  padding-block:24px
+}
+.spread {
+  grid-template-columns:1fr;
+  margin-top:20px;
+  gap:24px
+}
+.art .turntable {
+  height:165px
+}
+.art {
+  text-align:left
+}
+.art .turntable {
+  width:auto;
+  max-width:100%
+}
+aside {
+  border-left:0;
+  border-top:1px solid #aaa18f;
+  padding:18px 0
+}
+
+}
+
+details[open] p {
+  margin-top: 1em;
+}
+
+.vinyl-spin {
+  transform-origin: 0 0;
+  animation: record-revolution 12s linear infinite;
+}
+@keyframes record-revolution {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-spin { animation: none; }
+  .moving-vinyl { display: none; }
+}

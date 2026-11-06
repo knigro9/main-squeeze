@@ -8,7 +8,9 @@
 .home-page .celebrations,
 .home-page .juicy-details.secondary-links,
 .just-us-page > main,
-.with-family-page > main {
+.with-family-page > main,
+.our-story-page > main,
+.generosity-page > main {
   width: var(--site-content-width);
   max-width: none;
   margin-left: var(--site-content-left);
@@ -20,7 +22,7 @@
   padding-left: var(--site-content-left);
   padding-right: calc(100% - var(--site-content-left) - var(--site-content-width));
 }
-:is(.just-us-page,.with-family-page) .event-page-header {
+:is(.just-us-page,.with-family-page,.our-story-page,.generosity-page) .event-page-header {
   width: var(--site-content-width);
   margin-left: var(--site-content-left);
   margin-right: 0;
@@ -34,4 +36,134 @@
 /* Keep event copy on the shared column edges at every desktop width. */
 .with-family-page .venue .caption { max-width: none; width: 100%; margin-left: 0; margin-right: 0; }
 /* Scale the complete illustration together, including the animated sun. */
-.home-page .hero-art-wrap { zoom: .88; }
+.home-page .hero-art-wrap { zoom: .792; }
+
+/* Center the full opening composition within the space below the fixed nav. */
+.home-page .hero {
+  justify-content: center;
+  padding-top: 98px;
+  padding-bottom: 24px;
+}
+.home-page .hero > * { flex-shrink: 0; }
+@media (max-width:600px) {
+  .home-page .hero { padding-top: 86px; }
+}
+
+/* A lighter opening composition, with a quiet invitation to scroll. */
+.home-page .hero h1,
+.home-page .hero .title-divider,
+.home-page .hero .names,
+.home-page .hero .lets-ride { zoom: .9; }
+.home-page .hero .lets-ride { margin-top: -8px; }
+.home-page .lets-ride span { animation: home-scroll-arrow 3s ease-in-out infinite; }
+@keyframes home-scroll-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+@media (max-width:600px) {
+  .home-page .hero .lets-ride { margin-top: 26px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .home-page .lets-ride span { animation: none; }
+}
+
+/* Give the scroll invitation a little more space below the illustration. */
+.home-page .hero .lets-ride { position: relative; top: 14px; }
+
+/* One typographic grid for all four celebration cards. */
+.home-page .celebrations .event-card { container-type: inline-size; }
+.home-page .celebrations .event-card .volume-label {
+  top:20px!important; left:28px!important; margin:0!important;
+  font-size:18px!important; font-weight:700!important;
+  line-height:1.2!important; letter-spacing:0!important;
+}
+.home-page .celebrations .event-card .volume-label::after {
+  width:25px!important; height:2px!important; margin-top:10px!important;
+}
+.home-page .celebrations .event-card .event-card-copy {
+  left:28px!important; right:28px!important; bottom:24px!important; margin:0!important;
+}
+.home-page .celebrations .event-card .event-card-copy h2 {
+  font-family:'DM Serif Display',Georgia,serif!important;
+  font-size:clamp(32px,19cqw,58px)!important;
+  font-weight:400!important; line-height:.95!important;
+  letter-spacing:-.8px!important; transform:none!important; margin:0!important;
+}
+.home-page .celebrations .event-card .event-card-copy p {
+  font-size:clamp(18px,8cqw,24px)!important; font-weight:700!important;
+  line-height:1.15!important; margin:10px 0 0!important;
+}
+.home-page .celebrations .event-card .event-card-copy p::after {
+  width:28px!important; height:2px!important; margin:12px 0!important;
+}
+.home-page .celebrations .event-card .event-card-copy small {
+  display:block!important; font-size:clamp(16px,6.5cqw,19px)!important;
+  font-weight:700!important; line-height:1.15!important; margin:0!important;
+}
+
+/* Match the splash to the artwork's own waterline coordinates. */
+.home-page .hang-ten-card .splash-svg {
+  inset:15% auto auto 0; width:100%; height:auto; aspect-ratio:780 / 270;
+}
+.home-page .event-card.party-time-card .party-time-scene { top:24%!important; }
+.home-page .juicy-details .secondary-icon img { scale:.9025; }
+/* The outline and heading warm up and flicker together, then settle back. */
+.juicy-outline-glow {
+  position:absolute; inset:-1px; border:1px solid var(--orange);
+  pointer-events:none; z-index:0; opacity:0;
+  animation:juicy-outline-pulse 9s linear infinite;
+}
+.home-page .juicy-details .juicy-title { animation:juicy-heading-pulse 9s linear infinite; }
+@keyframes juicy-outline-pulse {
+  0%,46%,100% { opacity:0; box-shadow:none; }
+  59%,77% { opacity:1; box-shadow:0 0 3px #d9571ca3,0 0 8px #d9571c80; }
+  78%,80%,84%,86% { opacity:0; box-shadow:none; }
+  81%,83%,87%,93% { opacity:1; box-shadow:0 0 3px #d9571ca3,0 0 8px #d9571c80; }
+}
+@keyframes juicy-heading-pulse {
+  0%,46%,100% { color:var(--navy); text-shadow:none; }
+  59%,77% { color:var(--orange); text-shadow:0 0 3px #d9571ca3,0 0 8px #d9571c80; }
+  78%,80%,84%,86% { color:var(--navy); text-shadow:none; }
+  81%,83%,87%,93% { color:var(--orange); text-shadow:0 0 3px #d9571ca3,0 0 8px #d9571c80; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .juicy-outline-glow { animation:none; }
+  .home-page .juicy-details .juicy-title { animation:none; }
+  .home-page .hang-ten-card .splash-svg { display:none; }
+}
+
+/* Optical balance: keep each illustration distinct but equally present. */
+.home-page .hang-ten-card .hang-ten-art,
+.home-page .hang-ten-card .splash-svg {
+  transform:scale(1.18); transform-origin:50% 74%;
+}
+.home-page .event-card.just-us-card .just-us-scene { width:70%!important; }
+.home-page .event-card.with-family-card .with-family-scene { width:52%!important; }
+.home-page .event-card.party-time-card .party-time-scene { width:62%!important; }
+.home-page .event-card::after { opacity:.055; }
+@media (hover:hover) {
+  .home-page .event-card:hover,
+  .home-page .event-card:nth-child(even):hover {
+    transform:translateY(-4px);
+    box-shadow:0 9px 18px rgba(23,59,91,.12);
+  }
+}
+.home-page .event-card:focus-visible {
+  outline:2px solid var(--orange); outline-offset:5px;
+}
+
+/* Cursor-responsive printed cards: restrained tilt and a soft moving sheen. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .home-page .event-card { transition:transform 350ms ease,box-shadow 350ms ease; }
+  .home-page .event-card:hover,
+  .home-page .event-card:nth-child(even):hover {
+    transform:perspective(1000px) translateY(-6px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));
+    box-shadow:0 14px 24px #173b5b26,0 4px 7px #173b5b12;
+  }
+  .home-page .event-card::before {
+    content:'';position:absolute;inset:0;z-index:8;pointer-events:none;
+    background:radial-gradient(circle at var(--shine-x,50%) var(--shine-y,50%),#fff6df30,transparent 65%);
+    opacity:0;transition:opacity 350ms ease;
+  }
+  .home-page .event-card:hover::before { opacity:1; }
+}
